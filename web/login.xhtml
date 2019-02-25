@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+          <h:form>
+            <h:commandLink action="#{signinCtrl.logout()}" rendered="#{signinCtrl.login}" value="Logout"/>
+        </h:form>
+        <h:form >
+            <h:panelGrid columns="2" >
+                <h:outputLabel for="idFirstName" value="Benutzername" />
+                <h:inputText id="idFirstName" value="#{signinCtrl.person.email}" />
+                <h:outputLabel for="idLastName" value="Passwort" />
+                <h:inputSecret id="idLastName" value="#{signinCtrl.person.password}" />
+            </h:panelGrid>
+            <h:commandButton action="#{signinCtrl.login}" value="Login" />
+            <h:commandLink action="zurZweiten" value="zur Zweiten Seiten" rendered="#{signinCtrl.konfigurator or signinCtrl.sachbearbeiter}"/>
+           <h:commandButton action="start" value="Home" />
+        </h:form>
+        
+    </h:body>
+</html>
+
